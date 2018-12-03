@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+<!-- <!doctype html> -->
+<html lang="en" ng-app="HOApp">
 
 <head>
     <title>Title</title>
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-route.js"></script>
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -28,11 +28,16 @@
         crossorigin="anonymous"></script>
 
     <!-- additional JS files -->
+    <link rel="stylesheet" href="style.css">
+    <script src="app/app.js"></script>
+    <script src="app/navbar/navbarDir.js"></script>
+    <script src="app/navbar/navbarCtrl.js"></script>
 
 </head>
 
 <body>
     <ng-view></ng-view>
+    {{5+5}}
 </body>
 
 </html>
