@@ -1,4 +1,4 @@
-app.factory("user", function ($q, $http) {
+app.factory("user", function ($q, $http, $location) {
 
     var activeUser = null;
     // new User( {
@@ -22,7 +22,6 @@ app.factory("user", function ($q, $http) {
 
     function login(email, pwd) {
         var async = $q.defer();
-
         var loginURL = "http://my-json-server.typicode.com/nimrodh01/fed-final-hoa/users?email=" +
             email + "&pwd=" + pwd;
         $http.get(loginURL).then(function (response) {
@@ -48,6 +47,7 @@ app.factory("user", function ($q, $http) {
 
     function logout() {
         activeUser = null;
+        $location.path("/")
     }
 
     function getActiveUser() {
