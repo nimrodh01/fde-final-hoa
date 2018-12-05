@@ -1,9 +1,9 @@
-app.factory("recipes", function($q, $http, user) {
+app.factory("messages", function($q, $http, user) {
 
-    var recipes = {};
+    var messages = {};
     var wasEverLoaded = {};
 
-    function Recipe(plainRecipe) {
+    function Message(plainRecipe) {
         this.id = plainRecipe.id;
         this.name = plainRecipe.name;
         this.description = plainRecipe.description;
@@ -13,7 +13,7 @@ app.factory("recipes", function($q, $http, user) {
         this.userId = plainRecipe.userId;
     }
 
-    function getActiveUserRecipes() {
+    function getActiveUserMessages() {
         var async = $q.defer();
 
         var userId = user.getActiveUser().id;

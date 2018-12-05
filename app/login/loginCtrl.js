@@ -1,4 +1,4 @@
-app.controller("loginCtrl", function ($scope) {
+app.controller("loginCtrl", function ($scope, $location, user) {
     
     $scope.email = "nimrod.haller@mail.com";
     $scope.pwd = "123";
