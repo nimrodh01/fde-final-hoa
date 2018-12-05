@@ -18,8 +18,8 @@ app.config(function ($routeProvider) {
     //         templateUrl: "app/recipes/recipeGallery.html",
     //         controller: "recipeGalleryCtrl"
     //     }).when("/new" , {
-    //         templateUrl: "app/recipes/newRecipe.html",
-    //         controller: "newRecipeCtrl"
+    //         templateUrl: "app/recipes/newMessage.html",
+    //         controller: "newMessageCtrl"
     //     }).when("/recipe/:id" , {
 
     //     })
