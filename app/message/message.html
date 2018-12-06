@@ -1,54 +1,56 @@
-<div class="container">
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newMessageModal">
-        Create New Message
-    </button>
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="messageCtrl.js"></script>
+</head>
 
-    <!-- Modal -->
-    <div class="modal fade" id="newMessageModal" tabindex="-1" role="dialog" aria-labelledby="newMessageModalLabel"
-        aria-hidden="true">
+
+
+<div class="container">
+    <h2>Large Modal</h2>
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newMessageModal">Create New Message</button>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="newMessageModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="newMessageModalLabel">New Message</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <div class="modal-body">
-                    <div ng-controller="mesaageCtrl" class="container">
-                        <form name="messageForm" novalidate>
-                            <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" ng-model="title" required class="form-control" name="title">
-                                <label for="title">Title</label>
-                                <input type="text" ng-model="title" required class="form-control" name="title">
-                                <label for="title">Title</label>
-                                <input type="text" ng-model="title" required class="form-control" name="title">
-                                <label for="title">Title</label>
-                                <input type="text" ng-model="title" required class="form-control" name="title">
-                                    <!-- ng-class="{'is-invalid':loginForm.email.$error.required && loginForm.email.$touched}"
-                                    placeholder="Enter email">
-                                <small ng-show="loginForm.email.$error.required && loginForm.email.$touched" id="emailHelp"
-                                    class="form-text text-danger">email is required.</small> -->
-                            </div>
-
-
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
+                    <form ng-controller="mesaageCtrl">
+                        <div class="form-group">
+                            <label for="title" class="col-form-label">Title</label>
+                            <input type="text" class="form-control" id="title" ng-model="title">
+                        </div>
+                        <div class="form-group">
+                            <label for="details" class="col-form-label">Details</label>
+                            <textarea class="form-control" id="Details" ng-model="details"></textarea>
+                        </div>
+                        <div class="form-group">
+                                <select ng-model="severity" ng-options="x for x in items"></select>
+                        <div class="form-group">
+                            <label for="details" class="col-form-label">Details</label>
+                            <textarea class="form-control" id="Details" ng-model="details"></textarea>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Clear</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
-
-
-
-
-https://embed.plnkr.co/plunk/agDkhy
