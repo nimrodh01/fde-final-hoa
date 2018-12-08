@@ -15,11 +15,11 @@
             "fname": "Shlomit",
             "lname": "Haller",
             "email": "shlomitl9@gmail.com",
-            "pwd": "123",
+            "pwd": "1234",
             "communityId": 2,
             "unit": "6A",
             "isCM": true
-        }
+        },
         {
             "id": 3,
             "fname": "Ori",

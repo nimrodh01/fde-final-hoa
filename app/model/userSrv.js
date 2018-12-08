@@ -15,9 +15,12 @@ app.factory("user", function ($q, $http, $location) {
         this.lname = plainUser.lname;
         this.email = plainUser.email;
         this.pwd = plainUser.pwd;
-        this.community = plainUser.community;
+        this.communityId = plainUser.communityId;
         this.unit = plainUser.unit;
         this.isCM = plainUser.isCM;
+    }
+    User.prototype.fullName = function () {
+        return this.fname + " " + this.lname;
     }
 
     function login(email, pwd) {

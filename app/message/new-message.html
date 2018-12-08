@@ -1,16 +1,3 @@
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="messageCtrl.js"></script>
-</head>
-
-
-
 <div class="container">
     <h2>Large Modal</h2>
     <!-- Button to Open the Modal -->
@@ -28,27 +15,25 @@
                 </div>
 
                 <div class="modal-body">
-                    <form ng-controller="mesaageCtrl">
+                    <form>
                         <div class="form-group">
                             <label for="title" class="col-form-label">Title</label>
-                            <input type="text" class="form-control" id="title" ng-model="title">
+                            <input type="text" class="form-control" id="title" ng-model="title">{{title}}
+
                         </div>
                         <div class="form-group">
                             <label for="details" class="col-form-label">Details</label>
                             <textarea class="form-control" id="Details" ng-model="details"></textarea>
                         </div>
                         <div class="form-group">
-                                <select ng-model="severity" ng-options="x for x in items"></select>
-                        <div class="form-group">
-                            <label for="details" class="col-form-label">Details</label>
-                            <textarea class="form-control" id="Details" ng-model="details"></textarea>
+                            <select ng-model="severity" ng-options="severity.label for severity in sevirityValues"></select>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Clear</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
+                    <button type="button" class="btn btn-primary" ng-click="createMessage()">Send message</button>
                 </div>
             </div>
         </div>
