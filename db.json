@@ -6,7 +6,7 @@
             "lname": "Haller",
             "email": "nimrod.haller@gmail.com",
             "pwd": "123",
-            "community":"Via Grande",
+            "communityId": 1,
             "unit": "3B",
             "isCM": true
         },
@@ -16,7 +16,27 @@
             "lname": "Haller",
             "email": "shlomitl9@gmail.com",
             "pwd": "123",
-            "community":"Vila Grande",
+            "communityId": 2,
+            "unit": "6A",
+            "isCM": true
+        }
+        {
+            "id": 3,
+            "fname": "Ori",
+            "lname": "Haller",
+            "email": "shlomitl9@gmail.com",
+            "pwd": "123",
+            "communityId": 2,
+            "unit": "6A",
+            "isCM": true
+        },
+        {
+            "id": 4,
+            "fname": "Gili",
+            "lname": "Haller",
+            "email": "shlomitl9@gmail.com",
+            "pwd": "123",
+            "communityId": 1,
             "unit": "6A",
             "isCM":false
         }
@@ -24,39 +44,62 @@
     "messages": [
         {
             "id": 1,
-            "name": "Shakshuka",
-            "description": "Amazing egg dish with tomatto souce",
-            "ingredients": "Egg, Tomatto, Onion",
-            "steps": "Pout eggs and then tomatto",
-            "imgUrl": "http://media.foodnetwork.ca/recipetracker/56239255-96d6-4670-8a73-040baaf51f41_Shakshouka_WebReady.jpg",
-            "userId": 1
+            "createdBy": 2,
+            "createdAt": "22/12/2017 @ 17:00",
+            "title": "Yard Sales",
+            "details": "Policy",
+            "severity": "High",
+            "communityId": 2
         },
         {
             "id": 2,
-            "name": "Shakshuka",
-            "description": "Amazing egg dish with tomatto souce",
-            "ingredients": "Egg, Tomatto, Onion",
-            "steps": "Pout eggs and then tomatto",
-            "imgUrl": "https://www.serenaonline.co.za/wp-content/uploads/2017/12/Shakshouka-Poached-Eggs-in-a-Spicy-Tomato-Sauce-Smaller-File.jpg",
-            "userId": 1
+            "createdBy": 3,
+            "createdAt": "22/12/2018 @ 17:00",
+            "title": "Snow removal",
+            "details": "Please make sure all personal decoration is out of the way",
+            "severity": "High",
+            "communityId": 2
         },
         {
             "id": 3,
-            "name": "Shakshuka",
-            "description": "Amazing egg dish with tomatto souce",
-            "ingredients": "Egg, Tomatto, Onion",
-            "steps": "Pout eggs and then tomatto",
-            "imgUrl": "https://cdn.katalogsmakow.pl/2015/10/06/0x600/najlepsze-sniadanie-szakszuka-shakshouka-jajka-w-pomidorach.359892.jpg",
-            "userId": 2
+            "createdBy": 1,
+            "createdAt": "22/12/2018 @ 17:00",
+            "title": "The 4th Picnik",
+            "details": "Amazing egg dish with tomatto souce",
+            "severity": "High",
+            "communityId": 1
         },
         {
             "id": 4,
-            "name": "Shakshuka",
-            "description": "Amazing egg dish with tomatto souce",
-            "ingredients": "Egg, Tomatto, Onion",
-            "steps": "Pout eggs and then tomatto",
-            "imgUrl": "http://www.spicechronicles.com/wp-content/uploads/2015/09/Shakshouka_1_650.jpg",
-            "userId": 2
+            "createdBy": 1,
+            "createdAt": "22/12/2018 @ 17:00",
+            "title": "spring Cleaning",
+            "details": "Come and support sustainability",
+            "severity": "Low",
+            "communityId": 1
+        },
+        {
+            "id": 5,
+            "createdBy": 3,
+            "createdAt": "25/12/2018 @ 17:00",
+            "title": "Fire Drill",
+            "details": "A presentation will take place in the Club house",
+            "severity": "High",
+            "communityId": 2
+        }
+    ],
+    "communities": [
+        {
+            "communityId": 1,
+            "communityName": "Boca De la Vista"
+        },
+        {
+            "communityId": 2,
+            "communityName": "Reno Way"
+        },
+        {
+            "communityId": 3,
+            "communityName": "Oaks"
         }
     ]
 }
