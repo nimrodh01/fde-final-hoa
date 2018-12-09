@@ -7,10 +7,11 @@ app.controller("messageCtrl", function($scope, messages, $location, user) {
     }
 
     // Variables
-    $scope.title="Hallo";
+    $scope.title="";
     $scope.details="";
-    $scope.sevirity =$scope.sevirityValues[0]; 
     $scope.sevirityValues = [ {id: 1, label: "Info"}, {id: 2, label: "Urgent"}, {id: 3, label: "Critical"} ];
+    $scope.sevirity =$scope.sevirityValues[0]; 
+    
 
     $scope.createMessage = function () {
         messages.createMessage($scope.title, $scope.details, 

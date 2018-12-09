@@ -1,4 +1,4 @@
-app.factory("messages", function ($q, $http, user,community) {
+app.factory("messages", function ($q, $http, user) {
     
     var messages = {};
     var wasEverLoaded = {};
