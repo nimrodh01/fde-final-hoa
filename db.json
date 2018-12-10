@@ -6,7 +6,7 @@
             "lname": "Haller",
             "email": "nimrod.haller@gmail.com",
             "pwd": "123",
-            "communityId":1,
+            "communityId": 1,
             "unit": "3B",
             "isCM": true
         },
@@ -38,7 +38,7 @@
             "pwd": "123",
             "communityId": 1,
             "unit": "6A",
-            "isCM":false
+            "isCM": false
         }
     ],
     "messages": [
