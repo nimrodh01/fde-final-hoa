@@ -6,7 +6,7 @@
             "lname": "Haller",
             "email": "nimrod.haller@gmail.com",
             "pwd": "123",
-            "communityId": "NeedToChangelogic",
+            "communityId":1,
             "unit": "3B",
             "isCM": true
         },
