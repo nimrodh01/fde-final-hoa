@@ -16,7 +16,7 @@
             "lname": "Haller",
             "email": "shlomit@gmail.com",
             "pwd": "1234",
-            "communityId": 2,
+            "communityId": "2",
             "unit": "6A",
             "isCM": true
         },
@@ -26,7 +26,7 @@
             "lname": "Haller",
             "email": "ori@gmail.com",
             "pwd": "123",
-            "communityId": 2,
+            "communityId": "2",
             "unit": "6A",
             "isCM": true
         },
