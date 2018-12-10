@@ -10,4 +10,22 @@ app.controller("navbarCtrl", function ($scope ,user, $location) {
         $location.path("/");
     }
 
+    
+    $scope.getfirstName = function()
+    {
+        if($scope.isUserLoggedIn())
+        return user.getActiveUser().fname;
+    }
+    
+    
+    
+    $scope.getCommunity = function(){
+        if($scope.isUserLoggedIn())
+        return user.getActiveUser().communityId
+        else 
+        return "Community"
+    }
+    
+
+
 });

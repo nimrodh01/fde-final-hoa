@@ -30,6 +30,11 @@ app.factory("community", function ($scope) {
         return async.promise;
     }
 
+    function getCommunityName()
+    {
+        
+    }
+
     function isCurrentCommunity() {
         return community ? true : false;
     }

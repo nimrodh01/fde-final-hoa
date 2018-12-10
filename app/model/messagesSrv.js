@@ -1,31 +1,33 @@
 app.factory("messages", function ($q, $http, user) {
     
-    var messages = {};
+    var messages = [];
+    var messagesComunities = [];
     var wasEverLoaded = {};
 
     function Message(plainMessage) {
-        this.createdBy = user.getActiveUser().id;
-        this.communityId = user.getActiveUser().communityId;
-        this.createdAt = newDate.today() + " @ " + newDate.timeNow();
+        var userId = plainMessage.userId;
+        var newDate = new Date();
+        this.createdBy = plainMessage.userId;
+        this.communityId = plainMessage.communityId;
+        this.createdAt = formatDate(newDate);
         this.title = plainMessage.title;
         this.detail = plainMessage.details;
         this.severity = plainMessage.severity;
     }
-    // For todays date;
-    Message.prototype.today = function () {
-        return ((this.getDate() < 10) ? "0" : "") + this.getDate() + "/" + (((this.getMonth() + 1) < 10) ? "0" : "") + (this.getMonth() + 1) + "/" + this.getFullYear();
-    }
 
-    // For the time now
-    Message.prototype.timeNow = function () {
-        return ((this.getHours() < 10) ? "0" : "") + this.getHours() + ":" + ((this.getMinutes() < 10) ? "0" : "") + this.getMinutes() + ":" + ((this.getSeconds() < 10) ? "0" : "") + this.getSeconds();
-    }
+    function formatDate(date) 
+    {
+    var myDate = (date.getDate() < 10) ? "0" : "" + date.getDate() + "/" + (((date.getMonth() + 1) < 10) ? "0" : "") + (date.getMonth() + 1) + "/" + date.getFullYear();
+    var myTime = (date.getHours() < 10) ? "0" : "" + date.getHours() + ":" + ((date.getMinutes() < 10) ? "0" : "") + date.getMinutes() + ":" + ((date.getSeconds() < 10) ? "0" : "") + date.getSeconds();
+
+    return (myDate+" "+myTime)
+}
+
 
 
 
     function getCommunityMessages() {
         var async = $q.defer();
-
         var communityId = community.getActiveUser().communityId;
 
         // This is a hack since we don't really have a persistant server.
@@ -34,7 +36,7 @@ app.factory("messages", function ($q, $http, user) {
             async.resolve(messages[communityId]);
         } else {
             messages[communityId] = [];
-            var getMessagesURL = "http://my-json-server.typicode.com/nimrodh01/fed-final-hoa/messages?userId=" + communityId;
+            var getMessagesURL = "http://my-json-server.typicode.com/nimrodh01/fed-final-hoa/messages?communityId=" + communityId;
 
             $http.get(getMessagesURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {
@@ -51,20 +53,23 @@ app.factory("messages", function ($q, $http, user) {
         return async.promise;
     }
 
-
     function createMessage(title, detail, severity) {
         var async = $q.defer();
-
-        var userId = user.getActiveUser().id;
-        var newDate = new Date();
-        var newMessage = new Message({ createdBy: -1, createdAt:newDate, title: title, detail: detail, severity: severity });
-
+        var userId = user.getActiveUser().id
+        var communityId = user.getActiveUser().communityId;
+                        var newMessage = new Message({title: title, userId:userId, communityId:communityId, detail: detail, severity: severity });
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newMessage).then.....
-
-        messages[userId].push(newMessage);
+        // messagesComunities = messages.map(r =>r.communityId);
+        // var index =messagesComunities.indexOf(communityId);
+        // if(index>-1){
+        //     messages[index]..push(newMessage);
+        // } 
+        // else {
+        //     messages.push(newMessage);
+        // }
+        messages.push(newMessage);
         async.resolve(newMessage);
-
         return async.promise;
     }
 

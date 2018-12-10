@@ -16,7 +16,7 @@ app.controller("messageCtrl", function($scope, messages, $location, user) {
     $scope.createMessage = function () {
         messages.createMessage($scope.title, $scope.details, 
             $scope.severity).then(function () {
-            $location.path("/messages")
+            $location.path("/")
         }, function (err) {
             console.log(err);
         })
