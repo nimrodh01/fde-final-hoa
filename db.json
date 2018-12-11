@@ -47,7 +47,7 @@
             "createdBy": 2,
             "createdAt": "22/12/2017 @ 17:00",
             "title": "Yard Sales",
-            "details": "Policy",
+            "detail": "Policy",
             "severity": "High",
             "communityId": 2
         },
@@ -56,7 +56,7 @@
             "createdBy": 3,
             "createdAt": "22/12/2018 @ 17:00",
             "title": "Snow removal",
-            "details": "Please make sure all personal decoration is out of the way",
+            "detail": "Please make sure all personal decoration is out of the way",
             "severity": "High",
             "communityId": 2
         },
@@ -65,7 +65,7 @@
             "createdBy": 1,
             "createdAt": "22/12/2018 @ 17:00",
             "title": "The 4th Picnik",
-            "details": "Amazing egg dish with tomatto souce",
+            "detail": "Amazing egg dish with tomatto souce",
             "severity": "High",
             "communityId": 1
         },
@@ -74,7 +74,7 @@
             "createdBy": 1,
             "createdAt": "22/12/2018 @ 17:00",
             "title": "spring Cleaning",
-            "details": "Come and support sustainability",
+            "detail": "Come and support sustainability",
             "severity": "Low",
             "communityId": 1
         },
@@ -83,7 +83,7 @@
             "createdBy": 3,
             "createdAt": "25/12/2018 @ 17:00",
             "title": "Fire Drill",
-            "details": "A presentation will take place in the Club house",
+            "detail": "A presentation will take place in the Club house",
             "severity": "High",
             "communityId": 2
         }
