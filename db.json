@@ -1,105 +1,144 @@
 {
     "users": [
-        {
-            "id": 1,
-            "fname": "Nimrod",
-            "lname": "Haller",
-            "email": "nimrod.haller@gmail.com",
-            "pwd": "123",
-            "communityId": 1,
-            "unit": "3B",
-            "isCM": true
-        },
-        {
-            "id": 2,
-            "fname": "Shlomit",
-            "lname": "Haller",
-            "email": "shlomit@gmail.com",
-            "pwd": "1234",
-            "communityId": 2,
-            "unit": "6A",
-            "isCM": true
-        },
-        {
-            "id": 3,
-            "fname": "Ori",
-            "lname": "Haller",
-            "email": "ori@gmail.com",
-            "pwd": "123",
-            "communityId": 2,
-            "unit": "6A",
-            "isCM": true
-        },
-        {
-            "id": 4,
-            "fname": "Gili",
-            "lname": "Haller",
-            "email": "gili@gmail.com",
-            "pwd": "123",
-            "communityId": 1,
-            "unit": "6A",
-            "isCM": false
-        }
+      {
+        "userId": 1,
+        "fname": "Nimrod",
+        "lname": "Haller",
+        "email": "nimrod.haller@gmail.com",
+        "pwd": "123",
+        "communityId": 1,
+        "unit": "3B",
+        "isCM": true
+      },
+      {
+        "userId": 2,
+        "fname": "Shlomit",
+        "lname": "Haller",
+        "email": "shlomit@gmail.com",
+        "pwd": "1234",
+        "communityId": 2,
+        "unit": "6A",
+        "isCM": true
+      },
+      {
+        "userId": 3,
+        "fname": "Ori",
+        "lname": "Haller",
+        "email": "ori@gmail.com",
+        "pwd": "123",
+        "communityId": 2,
+        "unit": "6A",
+        "isCM": true
+      },
+      {
+        "userId": 4,
+        "fname": "Gili",
+        "lname": "Haller",
+        "email": "gili@gmail.com",
+        "pwd": "123",
+        "communityId": 1,
+        "unit": "6A",
+        "isCM": false
+      }
     ],
     "messages": [
-        {
-            "id": 1,
-            "createdBy": 2,
-            "createdAt": "22/12/2017 @ 17:00",
-            "title": "Yard Sales",
-            "detail": "Policy",
-            "severity": "High",
-            "communityId": 2
+      {
+        "id": 1,
+        "createdBy": 2,
+        "createdAt": "22/12/2017 @ 17:00",
+        "title": "Yard Sales",
+        "detail": "Policy",
+        "severity": {
+          "id": 2,
+          "lable": "Urgent"
         },
-        {
-            "id": 2,
-            "createdBy": 3,
-            "createdAt": "22/12/2018 @ 17:00",
-            "title": "Snow removal",
-            "detail": "Please make sure all personal decoration is out of the way",
-            "severity": "High",
-            "communityId": 2
+        "community": 2
+      },
+      {
+        "id": 2,
+        "createdBy": 3,
+        "createdAt": "22/12/2018 @ 17:00",
+        "title": "Snow removal",
+        "detail": "Please make sure all personal decoration is out of the way",
+        "severity": {
+          "id": 2,
+          "lable": "Urgent"
         },
-        {
-            "id": 3,
-            "createdBy": 1,
-            "createdAt": "22/12/2018 @ 17:00",
-            "title": "The 4th Picnik",
-            "detail": "Amazing egg dish with tomatto souce",
-            "severity": "High",
-            "communityId": 1
+        "communityId": 2
+      },
+      {
+        "id": 3,
+        "createdBy": 1,
+        "createdAt": "22/12/2018 @ 17:00",
+        "title": "The 4th Picnik",
+        "detail": "Amazing egg dish with tomatto souce",
+        "severity": {
+          "id": 2,
+          "lable": "Urgent"
         },
-        {
-            "id": 4,
-            "createdBy": 1,
-            "createdAt": "22/12/2018 @ 17:00",
-            "title": "spring Cleaning",
-            "detail": "Come and support sustainability",
-            "severity": "Low",
-            "communityId": 1
+        "communityId": 1
+      },
+      {
+        "id": 4,
+        "createdBy": 1,
+        "createdAt": "22/12/2018 @ 17:00",
+        "title": "spring Cleaning",
+        "detail": "Come and support sustainability",
+        "severity": {
+          "id": 1,
+          "lable": "Info"
         },
-        {
-            "id": 5,
-            "createdBy": 3,
-            "createdAt": "25/12/2018 @ 17:00",
-            "title": "Fire Drill",
-            "detail": "A presentation will take place in the Club house",
-            "severity": "High",
-            "communityId": 2
-        }
+        "communityId": 1
+      },
+      {
+        "id": 5,
+        "createdBy": 3,
+        "createdAt": "25/12/2018 @ 17:00",
+        "title": "Fire Drill",
+        "detail": "A presentation will take place in the Club house",
+        "severity": {
+          "id": 3,
+          "lable": "Critical"
+        },
+        "communityId": 2
+      }
     ],
     "communities": [
-        {
-            "communityId": 1,
-            "communityName": "Boca De la Vista"
-        },
-        {
-            "communityId": 2,
-            "communityName": "Reno Way"
-        },
-        {
-            "communityId": 3,
-            "communityName": "Oaks"
+      {
+        "communityId": 1,
+        "communityName": "Boca De la Vista",
+        "address": {
+          "streetNumber": 13,
+          "streetName": "Palm",
+          "city": "Miami",
+          "state": "FL",
+          "zip": 22642,
+          "country": "USA"
         }
+      },
+      {
+        "communityId": 2,
+        "communityName": "Reno Way Clifs",
+        "address": {
+          "streetNumber": 3,
+          "streetName": "Reno Way",
+          "city": "Santa Cruz",
+          "state": "CA",
+          "zip": 45642,
+          "country": "USA"
+        }
+      },
+      {
+        "communityId": 3,
+        "communityName": "Oaks",
+        "address": {
+          "streetNumber": 3234,
+          "streetName": "Folsom",
+          "city": "Sacramento",
+          "state": "CA",
+          "zip": 45642,
+          "country": "USA"
+        }
+      }
     ]
-}
+  }
