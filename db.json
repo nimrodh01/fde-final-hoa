@@ -50,7 +50,7 @@
         "detail": "Policy",
         "severity": {
           "id": 2,
-          "lable": "Urgent"
+          "label": "Urgent"
         },
         "community": 2
       },
@@ -62,7 +62,7 @@
         "detail": "Please make sure all personal decoration is out of the way",
         "severity": {
           "id": 2,
-          "lable": "Urgent"
+          "label": "Urgent"
         },
         "communityId": 2
       },
@@ -74,7 +74,7 @@
         "detail": "Amazing egg dish with tomatto souce",
         "severity": {
           "id": 2,
-          "lable": "Urgent"
+          "label": "Urgent"
         },
         "communityId": 1
       },
@@ -86,7 +86,7 @@
         "detail": "Come and support sustainability",
         "severity": {
           "id": 1,
-          "lable": "Info"
+          "label": "Info"
         },
         "communityId": 1
       },
@@ -98,7 +98,7 @@
         "detail": "A presentation will take place in the Club house",
         "severity": {
           "id": 3,
-          "lable": "Critical"
+          "label": "Critical"
         },
         "communityId": 2
       }
