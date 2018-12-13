@@ -8,6 +8,32 @@
     transition: all .25s linear;
   }
 
+  .messages-header {
+    position: relative;
+  }
+  
+  .messages-list {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    border:none;
+    border-bottom: solid 2px #ccc;
+  }
+
+
+
+  li {    
+    list-style: none;
+    padding: 10px;
+}
+
+
+
+
+ul {
+    margin: 0;
+    padding: 0;
+}
 
 /* logging form */
 .form-container{
