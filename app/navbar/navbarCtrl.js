@@ -1,5 +1,5 @@
 
-app.controller("navbarCtrl", function ($scope ,user, $location) {
+app.controller("navbarCtrl", function ($scope, user, $location) {
 
     $scope.isUserLoggedIn = function () {
         return user.isLoggedIn();
@@ -10,22 +10,28 @@ app.controller("navbarCtrl", function ($scope ,user, $location) {
         $location.path("/");
     }
 
-    
-    $scope.getfirstName = function()
-    {
-        if($scope.isUserLoggedIn())
-        return user.getActiveUser().fname;
+
+    $scope.getfirstName = function () {
+        if ($scope.isUserLoggedIn())
+            return user.getActiveUser().fname;
     }
-    
-    
-    
-    $scope.getCommunity = function(){
-        if($scope.isUserLoggedIn())
-        return user.getActiveUser().communityId
-        else 
-        return "Community"
+
+
+
+    $scope.getCommunity = function () {
+        if ($scope.isUserLoggedIn())
+            return user.getActiveUser().communityId
+        else
+            return "Community"
     }
-    
+
+
+
+    // $scope.getMessages = function(){
+    //     if($scope.isUserLoggedIn())
+    //     return messages.getCommunityMessages();
+    // }
+
 
 
 });
