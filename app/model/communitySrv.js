@@ -1,49 +1,72 @@
-app.factory("community", function ($scope) {
+app.factory("communities", function ($http, $q) {
 
-    $scope.communities = [];
+    communities = [];
+    var wasEverLoaded = false;
 
     function Community(community) {
         this.communityId = community.communityId;
-        this.name = community.name;
-        this.address = {
-            number: number,
-            streetName: streetName,
-            zipCode: zipCode,
-            state: state,
-            country: country
-        }
+        this.communityName = community.communityName;
+        this.address = community.address
     }
 
-    function createCommunity(name) {
+
+
+
+    function getAllCommunities() {
         var async = $q.defer();
-
-        var userId = user.getActiveUser().id;
-        var newDate = new Date();
-        var newMessage = new Community({ createdBy: -1, communityId: name });
-
-        // if working with real server:
-        //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newMessage).then.....
-
-        messages[userId].push(newMessage);
-        async.resolve(newMessage);
+        if (wasEverLoaded) {
+            async.resolve(communities);
+        } else {
+            communities = [];
+            var getCommunitiesURL = "http://my-json-server.typicode.com/nimrodh01/fed-final-hoa/communities";
+            $http.get(getCommunitiesURL).then(function (response) {
+                for (var i = 0; i < response.data.length; i++) {
+                    var community = new Community(response.data[i]);
+                    communities.push(community);
+                }
+                wasEverLoaded = true;
+                async.resolve(communities);
+            }, function (error) {
+                async.reject(error);
+            });
+        }
 
         return async.promise;
     }
 
-    function getCommunityName()
-    {
-        
+
+    function getCommunityNameById(communityId) {
+        var length = communities.length;
+        var i = 0;
+        while (i < length) {
+            console.log(communities[i].communityId);
+            if (communityId == communities[i].communityId) {
+                return communities[i].communityName
+            }
+            else i++
+        }
+
     }
 
-    function isCurrentCommunity() {
-        return community ? true : false;
-    }
+    // function createCommunity(name) {
+    //     var async = $q.defer();
 
-    function getActiveUser() {
-        return activeUser;
-    }
+    //     var userId = user.getActiveUser().userId;
+    //     var newDate = new Date();
+    //     var newMessage = new Community({ createdBy: -1, communityId: name });
+
+    //     // if working with real server:
+    //     //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newMessage).then.....
+
+    //     messages[userId].push(newMessage);
+    //     async.resolve(newMessage);
+
+    //     return async.promise;
+    // }
+
 
     return {
-        getActiveUser: getActiveUser
+        getAllCommunities: getAllCommunities,
+        getCommunityNameById: getCommunityNameById
     }
 })
