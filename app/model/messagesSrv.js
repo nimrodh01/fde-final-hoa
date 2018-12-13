@@ -1,4 +1,4 @@
-app.factory("messages", function ($q, $http,user) {
+app.factory("messages", function ($q, $http, user) {
 
     var messages = {};
     // var messagesComunities = [];
@@ -59,21 +59,29 @@ app.factory("messages", function ($q, $http,user) {
         var async = $q.defer();
         var createdBy = user.getActiveUser().userId
         var communityId = user.getActiveUser().communityId;
-        var newMessage = new Message({ title: title, createdBy: createdBy, communityId: communityId, detail:detail, severity:severity });
+        var newMessage = new Message({ title: title, createdBy: createdBy, communityId: communityId, detail: detail, severity: severity });
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newMessage).then.....
         // messages[communityId] = [];
         messages[communityId].unshift(newMessage);
-        async.resolve(newMessage);
+        async.resolve(messages[communityId]);
         return async.promise;
     }
 
 
 
+    function removeMessage(message) {
+        var communityId = user.getActiveUser().communityId;
+        var index = messages[communityId].indexOf(message);
+        messages[communityId].splice(index, 1);
+        return messages[communityId]
+
+    }
 
 
     return {
         getCommunityMessages: getCommunityMessages,
-        createMessage: createMessage
+        createMessage: createMessage,
+        removeMessage: removeMessage
     }
 })

@@ -1,8 +1,24 @@
-<li ng-repeat="message in communityMessages" >
-    <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-        ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
-        <h7 class="title">{{message.title}}</h7><span class="badge badge-primary badge-pill">{{message.severity.label}}</span>
-    </button>
+<li ng-repeat="message in communityMessages">
+    <div class="row">
+        <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center col-9" ng-mouseover="hoverIn()"
+            ng-mouseleave="hoverOut()">
+
+            <h7 class="title">{{message.title}}</h7>
+            <span class="badge badge-primary badge-pill">{{message.severity.label}}</span>
+        </button>
+        <div class="col-3">
+            <button ng-show="isUserCM()" type="button" class=" btn btn-primary border" ng-click="updateMessage(message)" data-toggle="modal" data-target="#editMessageModal">
+                <i class="fas fa-edit fa-1x"></i>
+            </button>
+            <!--Edit Button -->
+            <span ng-show="isUserCM()" ng-click='removeMessage(message)'>
+                <!--Delete Button -->
+                <i class="fas fa-trash float-right fa-2x"></i>
+            </span>
+        </div>
+    </div>
+
+
     <div ng-show="hoverEdit">
         <p class="list-group list-group-flush">{{message.details}}</p>
     </div>
@@ -10,4 +26,4 @@
 
 
 
-<!-- | orderBy : message.severity.id this is not working since severity is an object and not Array--> 
+<!-- | orderBy : message.severity.id this is not working since severity is an object and not Array-->
