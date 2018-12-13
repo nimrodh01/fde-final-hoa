@@ -1,34 +1,36 @@
-app.factory("messages", function ($q, $http, user) {
-    
-    var messages = [];
-    var messagesComunities = [];
+app.factory("messages", function ($q, $http,user) {
+
+    var messages = {};
+    // var messagesComunities = [];
     var wasEverLoaded = {};
 
     function Message(plainMessage) {
-        var userId = plainMessage.userId;
+        // var userId = plainMessage.userId;
         var newDate = new Date();
-        this.createdBy = plainMessage.userId;
+        this.createdBy = plainMessage.createdBy;
         this.communityId = plainMessage.communityId;
-        this.createdAt = formatDate(newDate);
+        if (!plainMessage.createdAt)
+            this.createdAt = newDate;
+        else
+            this.createdAt = plainMessage.createdAt;
         this.title = plainMessage.title;
-        this.detail = plainMessage.details;
+        this.details = plainMessage.detail;
         this.severity = plainMessage.severity;
     }
 
-    function formatDate(date) 
-    {
-    var myDate = (date.getDate() < 10) ? "0" : "" + date.getDate() + "/" + (((date.getMonth() + 1) < 10) ? "0" : "") + (date.getMonth() + 1) + "/" + date.getFullYear();
-    var myTime = (date.getHours() < 10) ? "0" : "" + date.getHours() + ":" + ((date.getMinutes() < 10) ? "0" : "") + date.getMinutes() + ":" + ((date.getSeconds() < 10) ? "0" : "") + date.getSeconds();
+    function formatDate(date) {
+        var myDate = (date.getDate() < 10) ? "0" : "" + date.getDate() + "/" + (((date.getMonth() + 1) < 10) ? "0" : "") + (date.getMonth() + 1) + "/" + date.getFullYear();
+        var myTime = (date.getHours() < 10) ? "0" : "" + date.getHours() + ":" + ((date.getMinutes() < 10) ? "0" : "") + date.getMinutes() + ":" + ((date.getSeconds() < 10) ? "0" : "") + date.getSeconds();
 
-    return (myDate+" "+myTime)
-}
+        return (myDate + " " + myTime)
+    }
 
 
 
 
     function getCommunityMessages() {
         var async = $q.defer();
-        var communityId = community.getActiveUser().communityId;
+        var communityId = user.getActiveUser().communityId;
 
         // This is a hack since we don't really have a persistant server.
         // So I want to get all messages only once.
@@ -55,20 +57,13 @@ app.factory("messages", function ($q, $http, user) {
 
     function createMessage(title, detail, severity) {
         var async = $q.defer();
-        var userId = user.getActiveUser().id
+        var createdBy = user.getActiveUser().userId
         var communityId = user.getActiveUser().communityId;
-                        var newMessage = new Message({title: title, userId:userId, communityId:communityId, detail: detail, severity: severity });
+        var newMessage = new Message({ title: title, createdBy: createdBy, communityId: communityId, detail:detail, severity:severity });
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newMessage).then.....
-        // messagesComunities = messages.map(r =>r.communityId);
-        // var index =messagesComunities.indexOf(communityId);
-        // if(index>-1){
-        //     messages[index]..push(newMessage);
-        // } 
-        // else {
-        //     messages.push(newMessage);
-        // }
-        messages.push(newMessage);
+        // messages[communityId] = [];
+        messages[communityId].unshift(newMessage);
         async.resolve(newMessage);
         return async.promise;
     }

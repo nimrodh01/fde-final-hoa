@@ -1,0 +1,13 @@
+<li ng-repeat="message in communityMessages" >
+    <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+        ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
+        <h7 class="title">{{message.title}}</h7><span class="badge badge-primary badge-pill">{{message.severity.label}}</span>
+    </button>
+    <div ng-show="hoverEdit">
+        <p class="list-group list-group-flush">{{message.details}}</p>
+    </div>
+</li>
+
+
+
+<!-- | orderBy : message.severity.id this is not working since severity is an object and not Array--> 
