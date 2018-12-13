@@ -13,37 +13,45 @@ app.controller("messageCtrl", function ($scope, $log, messages, $location, user)
     $scope.sevirity = $scope.sevirityValues[0].label;
 
 
+
+
     $scope.createMessage = function () {
         messages.createMessage($scope.title, $scope.details,
-            $scope.severity).then(function () {
+            $scope.severity).then(function (a) {
+                $scope.communityMessages = a;
                 $location.path("/messages")
             }, function (err) {
                 console.log(err);
             })
     }
 
+
+    // ############################################################### Editing Messages #####################################
+
+    $scope.editMessageObj = {};
+    $scope.updateMessage = function (message) {
+        $scope.editMessageObj = message;
+    }
+
+    // ###################################################################################################
     $scope.clearForm = function () {
         // clear the fields of new message form
         $scope.title = '';
         $scope.details = '';
     };
 
-    $scope.toggled = function (open) {
-        $log.log('Dropdown is now: ', open);
+    $scope.communityMessages = []
+    $scope.removeMessage = function (message) {
+        // clear the fields of new message form
+        $scope.communityMessages = messages.removeMessage(message);
     };
 
 
-    // recipes.getActiveUserRecipes().then(function (recipes) {
-    //     $scope.recipes = recipes;
-    // }, function (error) {
+    $scope.isUserCM = function () {
+        return user.isCommitteeMember()
 
-    // })
+    }
 
-    // $scope.communityMessages = {};
-    // $scope.getAllMessages = function () {
-    //     $scope.communityMessages = messages.getCommunityMessages();
-    //     console.log($scope.communityMessages)
-    // }
 
     $scope.hoverIn = function () {
         this.hoverEdit = true;
@@ -52,16 +60,16 @@ app.controller("messageCtrl", function ($scope, $log, messages, $location, user)
     $scope.hoverOut = function () {
         this.hoverEdit = false;
     };
-    
-    $scope.showMore=false;
-    $scope.toggleDetails = function() { 
-       $scope.showMore = !$scope.showMore;
-     };
+
+    $scope.showMore = false;
+    $scope.toggleDetails = function () {
+        $scope.showMore = !$scope.showMore;
+    };
 
 
     // This function wil return an Array containing all messages belings to the community and stored in "DB"
     $scope.getMyMessages = function () {
-        $scope.communityMessages=[];
+        // $scope.communityMessages=[];
         messages.getCommunityMessages().then(function (messages) {
             $scope.communityMessages = messages;
         }, function (error) {
