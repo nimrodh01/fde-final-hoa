@@ -112,7 +112,7 @@
           "streetName": "Palm",
           "city": "Miami",
           "state": "FL",
-          "zip": 22642,
+          "zipCode": 22642,
           "country": "USA"
         }
       },
@@ -124,7 +124,7 @@
           "streetName": "Reno Way",
           "city": "Santa Cruz",
           "state": "CA",
-          "zip": 45642,
+          "zipCode": 45642,
           "country": "USA"
         }
       },
@@ -136,7 +136,7 @@
           "streetName": "Folsom",
           "city": "Sacramento",
           "state": "CA",
-          "zip": 45642,
+          "zipCode": 45642,
           "country": "USA"
         }
       }
