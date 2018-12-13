@@ -10,7 +10,7 @@ app.factory("user", function ($q, $http, $location) {
     // });
 
     function User(plainUser) {
-        this.id = plainUser.id;
+        this.userId = plainUser.userId;
         this.fname = plainUser.fname;
         this.lname = plainUser.lname;
         this.email = plainUser.email;
@@ -48,6 +48,11 @@ app.factory("user", function ($q, $http, $location) {
         return activeUser ? true : false;
     }
 
+
+    function isCommitteeMember() {
+        return activeUser.isCM;
+    }
+
     function logout() {
         activeUser = null;
         $location.path("/")
@@ -61,6 +66,7 @@ app.factory("user", function ($q, $http, $location) {
         login: login,
         isLoggedIn: isLoggedIn,
         logout: logout,
-        getActiveUser: getActiveUser
+        getActiveUser: getActiveUser,
+        isCommitteeMember:isCommitteeMember
     }
 })
