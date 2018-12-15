@@ -8,7 +8,8 @@
         "pwd": "123",
         "communityId": 1,
         "unit": "3B",
-        "isCM": true
+        "isCM": true,
+        "isAdm":true
       },
       {
         "userId": 2,
@@ -18,7 +19,8 @@
         "pwd": "1234",
         "communityId": 2,
         "unit": "6A",
-        "isCM": true
+        "isCM": true,
+        "isAdm":true
       },
       {
         "userId": 3,
@@ -28,7 +30,8 @@
         "pwd": "123",
         "communityId": 2,
         "unit": "6A",
-        "isCM": true
+        "isCM": true,
+        "isAdm":false
       },
       {
         "userId": 4,
@@ -38,7 +41,8 @@
         "pwd": "123",
         "communityId": 1,
         "unit": "6A",
-        "isCM": false
+        "isCM": false,
+        "isAdm":false
       }
     ],
     "messages": [
