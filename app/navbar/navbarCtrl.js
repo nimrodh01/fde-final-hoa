@@ -1,5 +1,5 @@
 
-app.controller("navbarCtrl", function ($scope, user, $location) {
+app.controller("navbarCtrl", function ($scope, user, $location, communities) {
 
     $scope.isUserLoggedIn = function () {
         return user.isLoggedIn();
@@ -17,13 +17,15 @@ app.controller("navbarCtrl", function ($scope, user, $location) {
     }
 
 
-
+    // $scope.communityName="Community";
     $scope.getCommunity = function () {
-        if ($scope.isUserLoggedIn())
-            return user.getActiveUser().communityId
-        else
-            return "Community"
-    }
+        if ($scope.isUserLoggedIn()){
+        var communityId = user.getActiveUser().communityId;
+        return communities.getCommunityNameById(communityId)
+        }
+        else 
+        return  "Community"
+       }
 
 
 
