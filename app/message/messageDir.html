@@ -1,29 +1,81 @@
-<li ng-repeat="message in communityMessages">
-    <div class="row">
-        <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center col-9" ng-mouseover="hoverIn()"
-            ng-mouseleave="hoverOut()">
+<div class="row">
+    <div class="col-10">
+        <h3>Title (click for for more details)</h3>
+    </div>
+</div>
+<li ng-repeat="message in communityMessages" class="list-group-item justify-content-between">
 
+    <div class="row">
+        <div class="col-1">
+            <div ng-show="isUserCM()">
+                <!--Edit -->
+                <span class="btn" ng-click="updateMessage(message)" data-toggle="modal" data-target="#editMessageModal"><i
+                        class="material-icons md-36">edit</i>
+                </span>
+            </div>
+        </div>
+        <span class="justify-content-between col-10" ng-click="isExpandDetails = !isExpandDetails">
             <h7 class="title">{{message.title}}</h7>
             <span class="badge badge-primary badge-pill">{{message.severity.label}}</span>
-        </button>
-        <div class="col-3">
-            <button ng-show="isUserCM()" type="button" class=" btn btn-primary border" ng-click="updateMessage(message)" data-toggle="modal" data-target="#editMessageModal">
-                <i class="fas fa-edit fa-1x"></i>
-            </button>
-            <!--Edit Button -->
-            <span ng-show="isUserCM()" ng-click='removeMessage(message)'>
-                <!--Delete Button -->
-                <i class="fas fa-trash float-right fa-2x"></i>
-            </span>
+        </span>
+        <!--Delete -->
+        <div class="col-1">
+            <div ng-show="isUserCM()">
+                <span class="btn" ng-click='removeMessage(message)'><i class="material-icons md-36">delete</i></span>
+            </div>
         </div>
     </div>
 
-
-    <div ng-show="hoverEdit">
-        <p class="list-group list-group-flush">{{message.details}}</p>
+    <div class="col-11 ml-auto">
+        <div ng-show="isExpandDetails">
+            <p class="list-group-item-flush list-group-item-flush">{{message.details}}</p>
+        </div>
     </div>
 </li>
 
+
+<!-- | orderBy : message.severity.id this is not working since severity is an object and not Array-->
+
+
+
+
+
+<!-- <li ng-repeat="message in communityMessages" class="list-group-item">
+
+    <div class="row">
+        <div class="col-4">
+            <div class="list-group" id="list-tab" role="tablist">
+
+                <a class="list-group-item list-group-item-action data-toggle" href="#list-home" role="tab"
+                    aria-controls="home">
+                    <div class="col-10">
+                        <span class="justify-content-between col-10" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()"> -->
+<!--                         <h7 class="title">{{message.title}}</h7>
+                        <span class="badge badge-primary badge-pill">{{message.severity.label}}</span>
+                         </span> -->
+<!-- </div> -->
+
+<!-- <div class="col-2"> -->
+<!-- <div ng-show="isUserCM()"> -->
+<!--Edit -->
+<!-- <span ng-click="updateMessage(message)" data-toggle="modal" data-target="#editMessageModal"><i -->
+<!-- class="material-icons md-24">edit</i></span> -->
+<!--Delete -->
+<!--                             <span ng-click='removeMessage(message)'><i class="material-icons md-24">delete</i></span>
+                        </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                    <p class="list-group-item-flush list-group-item-flush">{{message.details}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</li> -->
 
 
 <!-- | orderBy : message.severity.id this is not working since severity is an object and not Array-->
