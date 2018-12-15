@@ -25,7 +25,7 @@ app.controller("loginCtrl", function ($scope, $location, communities, user) {
 
     }
 
-    // $scope.communityName = "Community";
+
     $scope.communityNameById = function () {
         if ($scope.isUserLoggedIn()) {
             var communityId = user.getActiveUser().communityId;
