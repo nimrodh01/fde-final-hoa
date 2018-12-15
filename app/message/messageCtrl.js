@@ -9,15 +9,32 @@ app.controller("messageCtrl", function ($scope, $log, messages, $location, user)
     // Variables
     $scope.title = "";
     $scope.details = "";
-    $scope.sevirityValues = [{ id: 1, label: "Info" }, { id: 2, label: "Urgent" }, { id: 3, label: "Critical" }];
-    $scope.sevirity = $scope.sevirityValues[0].label;
+    
+ 
+   
+      $scope.selectedOption = ['1','2','3'];
+    //   $scope.sevirityValues = [{ id: 1, label: "Info" }, { id: 2, label: "Urgent" }, { id: 3, label: "Critical" }];
+
+    $scope.severity = {
+        severityValues: [
+          {id: '1', label: 'Info'},
+          {id: '2', label: 'Urgent'},
+          {id: '3', label: 'Critical'}
+        ],
+        selectedOption: {id: '1', label: 'Info'} //This sets the default value of the select in the ui
+        };
+
+
+
+
+   
 
 
 
 
     $scope.createMessage = function () {
         messages.createMessage($scope.title, $scope.details,
-            $scope.severity).then(function (a) {
+            $scope.selectedOption).then(function (a) {
                 $scope.communityMessages = a;
                 $location.path("/messages")
             }, function (err) {
