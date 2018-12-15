@@ -3,7 +3,7 @@
         <h3>Title (click for for more details)</h3>
     </div>
 </div>
-<li ng-repeat="message in communityMessages" class="list-group-item justify-content-between">
+<li ng-repeat="message in communityMessages | orderBy:'severity.id' " class="list-group-item justify-content-between">
 
     <div class="row">
         <div class="col-1">
@@ -16,7 +16,7 @@
         </div>
         <span class="justify-content-between col-10" ng-click="isExpandDetails = !isExpandDetails">
             <h7 class="title">{{message.title}}</h7>
-            <span class="badge badge-primary badge-pill">{{message.severity.label}}</span>
+            <span class="badge badge-secondary badge-pill">{{message.severity.label}}</span>
         </span>
         <!--Delete -->
         <div class="col-1">
