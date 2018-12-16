@@ -38,7 +38,7 @@ app.factory("messages", function ($q, $http, user) {
             async.resolve(messages[communityId]);
         } else {
             messages[communityId] = [];
-            var getMessagesURL = "http://my-json-server.typicode.com/nimrodh01/fed-final-hoa/messages?communityId=" + communityId;
+            var getMessagesURL = "https://my-json-server.typicode.com/nimrodh01/fed-final-hoa/messages?communityId=" + communityId;
 
             $http.get(getMessagesURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {
@@ -61,7 +61,7 @@ app.factory("messages", function ($q, $http, user) {
         var communityId = user.getActiveUser().communityId;
         var newMessage = new Message({ title: title, createdBy: createdBy, communityId: communityId, detail: detail, severity: severity });
         // if working with real server:
-        //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newMessage).then.....
+        //$http.post("https://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newMessage).then.....
         // messages[communityId] = [];
         messages[communityId].unshift(newMessage);
         async.resolve(messages[communityId]);

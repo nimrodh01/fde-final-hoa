@@ -23,7 +23,7 @@ app.factory("user", function ($q, $http, $location) {
 
     function login(email, pwd) {
         var async = $q.defer();
-        var loginURL = "http://my-json-server.typicode.com/nimrodh01/fed-final-hoa/users?email=" +
+        var loginURL = "https://my-json-server.typicode.com/nimrodh01/fed-final-hoa/users?email=" +
             email + "&pwd=" + pwd;
         $http.get(loginURL).then(function (response) {
             if (response.data.length > 0) {
@@ -72,7 +72,7 @@ app.factory("user", function ($q, $http, $location) {
             async.resolve(users[communityId]);
         } else {
             users[communityId] = [];
-            var getUsersURL = "http://my-json-server.typicode.com/nimrodh01/fed-final-hoa/users?communityId=" + communityId;
+            var getUsersURL = "https://my-json-server.typicode.com/nimrodh01/fed-final-hoa/users?communityId=" + communityId;
 
             $http.get(getUsersURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {

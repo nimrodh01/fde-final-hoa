@@ -18,7 +18,7 @@ app.factory("communities", function ($http, $q) {
             async.resolve(communities);
         } else {
             communities = [];
-            var getCommunitiesURL = "http://my-json-server.typicode.com/nimrodh01/fed-final-hoa/communities";
+            var getCommunitiesURL = "https://my-json-server.typicode.com/nimrodh01/fed-final-hoa/communities";
             $http.get(getCommunitiesURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {
                     var community = new Community(response.data[i]);
@@ -56,7 +56,7 @@ app.factory("communities", function ($http, $q) {
     //     var newMessage = new Community({ createdBy: -1, communityId: name });
 
     //     // if working with real server:
-    //     //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newMessage).then.....
+    //     //$http.post("https://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newMessage).then.....
 
     //     messages[userId].push(newMessage);
     //     async.resolve(newMessage);
