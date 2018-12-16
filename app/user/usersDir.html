@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-10">
+        <h3>Users</h3>
+    </div>
+</div>
+<li ng-repeat="user in users" class="list-group-item justify-content-between">
+
+    <div class="row">
+        <!-- <div class="col-1"> -->
+            <!-- <div ng-show="isUserCM()"> -->
+                <!--Edit -->
+                <!-- <span class="btn" ng-click="updateMessage(message)" data-toggle="modal" data-target="#editMessageModal"><i -->
+                        <!-- class="material-icons md-36">edit</i> -->
+                <!-- </span>
+            </div>
+        </div> -->
+        <span class="justify-content-between col-10" ng-click="isExpandDetails = !isExpandDetails">
+            <h7 class="title">Full Name: {{user.fname}} {{user.lname}}</h7>
+            <!-- <span <h7 class="title">Full Name: {{user.fname}} {{user.lname}}</h7></span> -->
+        </span>
+        <!--Delete -->
+        <div class="col-1">
+            <div ng-show="isUserCM()">
+                <span class="btn" ng-click='removeUser(user)'><i class="material-icons md-36">delete</i></span>
+            </div>
+        </div>
+    </div>
+<!-- 
+    <div class="col-11 ml-auto">
+        <div ng-show="isExpandDetails">
+            <p class="list-group-item-flush list-group-item-flush">{{user.communityId.name}}</p>
+        </div>
+    </div> -->
+</li>
+

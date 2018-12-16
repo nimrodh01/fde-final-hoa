@@ -1,51 +1,32 @@
-app.controller("loginCtrl", function ($scope, $location, communities, user) {
+app.controller("userCtrl", function ($scope, $location, user) {
 
-    // $scope.email = "nimrod.haller@gmail.com";
-    // $scope.pwd = "123";
-
-    $scope.invalidLogin = false;
-
-    $scope.login = function () {
-        $scope.invalidLogin = false;
-
-        user.login($scope.email, $scope.pwd).then(function () {
-            $('#loginModal').modal('hide');
-            $scope.communityNameById();
-            $location.path("/")
+    $scope.users = [];
+    $scope.getMyUsers = function () {
+        // $scope.communityMessages=[];
+        user.getCommunityUsers().then(function (a) {
+            $scope.users = a;
         }, function (error) {
-            $scope.invalidLogin = true;
+
         })
     }
 
-    $scope.communities = [];
-    $scope.getCommunities = function () {
-        communities.getAllCommunities().then(function (communities) {
-            $scope.communities = communities
-        })
-
+    $scope.isUserCM = function () {
+        return user.isCommitteeMember()
     }
+    
+    $scope.removeUser = function (usertoRemove) {
+        // clear the fields of new message form
+        $scope.users = user.removeUserFromCommunity(usertoRemove);
+    };
 
-    // $scope.communityName = "Community";
-    $scope.communityNameById = function () {
-        if ($scope.isUserLoggedIn()) {
-            var communityId = user.getActiveUser().communityId;
-            $scope.communityName = communities.getCommunityNameById(communityId);
-        }
+
+    $scope.createUser = function () {
+        user.createUser(newUserFirstName, newUserLastName,
+            newUseremail,newUserPassword,newUserisCM).then(function (a) {
+                $scope.users = a;
+                $location.path("/tenents")
+            }, function (err) {
+                console.log(err);
+            })
     }
-
-
-
-
-
-
-    // Remember Me
-    //     if ($scope.rememberMe && $scope.email && $scope.pwd)
-    //     {
-    //     $scope.email = $scope.email;
-    //     $scope.pwd = $scope.pwd;
-    //     $scope.login
-    // }
-
-
-
 }); 

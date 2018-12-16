@@ -1,0 +1,22 @@
+<home-owner></home-owner>
+<div data-ng-init="getMyUsers()"></div>
+
+
+<div class="container-fluid col-8">
+    <div class="row">
+        <div class="col-11">
+            <h3 class="text-center align-middle">Users</h3>
+        </div>
+        <div class="col-1">
+            <button type="button" class=" btn btn-default" ng-show="isUserCM()" data-toggle="modal" data-target="#newUserModal">
+                <i class="material-icons md-36">supervised_user_circle</i>
+            </button>
+        </div>
+    </div>
+
+    <ul class="list-group list-group-flush">
+    <users-dir></users-dir>
+    </ul>
+</div>
+
+<newuser-modal></newuser-modal>
