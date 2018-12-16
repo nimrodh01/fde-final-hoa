@@ -1,13 +1,8 @@
 app.factory("user", function ($q, $http, $location) {
+
     var users = {};
     var activeUser = null;
-    // new User( {
-    //     "id": 1,
-    //     "fname": "Nir",
-    //     "lname": "Channes",
-    //     "email": "nir@nir.com",
-    //     "pwd": "123"
-    // });
+    var wasEverLoaded = {};
 
     function User(plainUser) {
         this.userId = plainUser.userId;
@@ -23,6 +18,8 @@ app.factory("user", function ($q, $http, $location) {
     User.prototype.fullName = function () {
         return this.fname + " " + this.lname;
     }
+
+
 
     function login(email, pwd) {
         var async = $q.defer();
@@ -63,28 +60,51 @@ app.factory("user", function ($q, $http, $location) {
         users[communityId].unshift(newUser);
         async.resolve(users[communityId]);
         return async.promise;
+    };
+
+
+    function getCommunityUsers() {
+        var async = $q.defer();
+        var communityId = activeUser.communityId;
+
+
+        if (wasEverLoaded[communityId]) {
+            async.resolve(users[communityId]);
+        } else {
+            users[communityId] = [];
+            var getUsersURL = "http://my-json-server.typicode.com/nimrodh01/fed-final-hoa/users?communityId=" + communityId;
+
+            $http.get(getUsersURL).then(function (response) {
+                for (var i = 0; i < response.data.length; i++) {
+                    var user = new User(response.data[i]);
+                    users[communityId].push(user);
+                }
+                wasEverLoaded[communityId] = true;
+                async.resolve(users[communityId]);
+            }, function (error) {
+                async.reject(error);
+            });
+            return async.promise;
+        };
     }
 
-
-
-    // function removeUser(user) {
-    //     var communityId = user.getActiveUser().communityId;
-    //     var index = messages[communityId].indexOf(message);
-    //     messages[communityId].splice(index, 1);
-    //     return messages[communityId]
-
-    // }
-
+    function removeUserFromCommunity(user) 
+    {
+        var communityId = user.communityId;
+        var index = users[communityId].indexOf(user);
+        users[communityId].splice(index, 1);
+        return users[communityId];
+    }
 
 
     function logout() {
         activeUser = null;
-        $location.path("/")
-    }
+        // $location.path("/")
+    };
 
     function getActiveUser() {
         return activeUser;
-    }
+    };
 
     return {
         login: login,
@@ -92,6 +112,8 @@ app.factory("user", function ($q, $http, $location) {
         logout: logout,
         getActiveUser: getActiveUser,
         isCommitteeMember: isCommitteeMember,
-        createUser:createUser
+        createUser: createUser,
+        getCommunityUsers: getCommunityUsers,
+        removeUserFromCommunity: removeUserFromCommunity
     }
 })

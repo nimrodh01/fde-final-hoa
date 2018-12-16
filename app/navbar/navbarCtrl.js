@@ -16,6 +16,8 @@ app.controller("navbarCtrl", function ($scope, user, $location, communities) {
             return user.getActiveUser().fname;
     }
 
+    //$scope.xx = user.getCommunityNameById;
+
 
     // $scope.communityName="Community";
     $scope.getCommunity = function () {

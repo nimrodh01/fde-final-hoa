@@ -27,11 +27,6 @@ app.controller("messageCtrl", function ($scope, $log, messages, $location, user)
 
 
 
-   
-
-
-
-
     $scope.createMessage = function () {
         messages.createMessage($scope.title, $scope.details,
             $scope.selectedOption).then(function (a) {
@@ -66,7 +61,6 @@ app.controller("messageCtrl", function ($scope, $log, messages, $location, user)
 
     $scope.isUserCM = function () {
         return user.isCommitteeMember()
-
     }
 
 
@@ -85,13 +79,12 @@ app.controller("messageCtrl", function ($scope, $log, messages, $location, user)
 
 
     // This function wil return an Array containing all messages belings to the community and stored in "DB"
-    $scope.getMyMessages = function () {
         // $scope.communityMessages=[];
         messages.getCommunityMessages().then(function (messages) {
             $scope.communityMessages = messages;
         }, function (error) {
 
         })
-    }
+    
 
 })

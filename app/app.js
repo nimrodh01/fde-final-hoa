@@ -13,12 +13,16 @@ app.config(function ($routeProvider) {
             controller: "loginCtrl"
         })
         .when("/newMessage", {
-            templateUrl: "app/message/new-message.html",
-            controller: "messageCtrl"
+            templateUrl: "app/message/new-message.html"
+            // controller: "messageCtrl"
         })
         .when("/messages", {
             templateUrl: "app/message/messages.html",
-            controller: "messageCtrl"
+            // controller: "messageCtrl"
+        })
+        .when("/tenants", {
+            templateUrl: "app/user/users.html",
+            controller: "userCtrl"
         })
     // .when("/signup", {
 

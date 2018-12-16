@@ -39,7 +39,7 @@ app.factory("communities", function ($http, $q) {
         var length = communities.length;
         var i = 0;
         while (i < length) {
-            console.log(communities[i].communityId);
+            // console.log(communities[i].communityId);
             if (communityId == communities[i].communityId) {
                 return communities[i].communityName
             }
