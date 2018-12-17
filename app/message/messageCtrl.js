@@ -9,20 +9,20 @@ app.controller("messageCtrl", function ($scope, $log, messages, $location, user)
     // Variables
     $scope.title = "";
     $scope.details = "";
-    
- 
-   
-      $scope.selectedOption = ['1','2','3'];
+
+
+
+    $scope.selectedOption = ['1', '2', '3'];
     //   $scope.sevirityValues = [{ id: 1, label: "Info" }, { id: 2, label: "Urgent" }, { id: 3, label: "Critical" }];
 
     $scope.severity = {
         severityValues: [
-          {id: '1', label: 'Info'},
-          {id: '2', label: 'Urgent'},
-          {id: '3', label: 'Critical'}
+            { id: '1', label: 'Info' },
+            { id: '2', label: 'Urgent' },
+            { id: '3', label: 'Critical' }
         ],
-        selectedOption: {id: '1', label: 'Info'} //This sets the default value of the select in the ui
-        };
+        selectedOption: { id: '1', label: 'Info' } //This sets the default value of the select in the ui
+    };
 
 
 
@@ -31,6 +31,7 @@ app.controller("messageCtrl", function ($scope, $log, messages, $location, user)
         messages.createMessage($scope.title, $scope.details,
             $scope.selectedOption).then(function (a) {
                 $scope.communityMessages = a;
+                $('#newMessageModal').modal('hide');
                 $location.path("/messages")
             }, function (err) {
                 console.log(err);
@@ -43,6 +44,7 @@ app.controller("messageCtrl", function ($scope, $log, messages, $location, user)
     $scope.editMessageObj = {};
     $scope.updateMessage = function (message) {
         $scope.editMessageObj = message;
+        $('#editMessageModal').modal('hide');
     }
 
     // ###################################################################################################
@@ -79,12 +81,28 @@ app.controller("messageCtrl", function ($scope, $log, messages, $location, user)
 
 
     // This function wil return an Array containing all messages belings to the community and stored in "DB"
-        // $scope.communityMessages=[];
-        messages.getCommunityMessages().then(function (messages) {
-            $scope.communityMessages = messages;
-        }, function (error) {
+    // $scope.communityMessages=[];
+    messages.getCommunityMessages().then(function (messages) {
+        $scope.communityMessages = messages;
+    }, function (error) {
 
-        })
-    
+    })
 
+
+    // ############################################################### Editing Messages #####################################
+    $scope.searchText = "";
+    $scope.filterMessages = function(message) {
+      // Check if the current message includes the value of searchText in the 
+      // properties title or details
+  
+      if (message.title.toLowerCase().includes($scope.searchText.toLowerCase()) ||
+        message.details.toLowerCase().includes($scope.searchText.toLowerCase())) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+
+    // ###################################################################################################
 })

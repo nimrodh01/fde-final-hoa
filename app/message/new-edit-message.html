@@ -2,6 +2,8 @@
 <div class="container-fluid">
     <div class="modal fade" id="newMessageModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
+
+
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">New message</h5>
@@ -11,26 +13,26 @@
                 </div>
 
                 <div class="modal-body">
-                    <form class="form-container">
+                    <form class="form-container" name="messageform">
                         <div class="form-group">
                             <label for="title" class="col-form-label">Title</label>
                             <input type="text" class="form-control" id="title" ng-model="title" required>
-
+                            <div class="invalid-feedback">Please provide a title.</div>
                         </div>
                         <div class="form-group">
                             <label for="details" class="col-form-label">Details</label>
-                            <textarea class="form-control" id="Details" ng-model="details"></textarea>
+                            <textarea class="form-control" id="details" ng-model="details" required></textarea>
                         </div>
                         <div class="form-group">
                             <select ng-model="selectedOption" ng-options="option.label for option in severity.severityValues track by option.id"></select>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" ng-click="clearForm()">Clear</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-primary" ng-click="messageform.$valid && createMessage()">Send message
+                        </button>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" ng-click="clearForm()">Clear</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="createMessage()">Send
-                        message</button>
                 </div>
             </div>
         </div>
@@ -52,16 +54,15 @@
                 </div>
 
                 <div class="modal-body">
-                    <form class="form-container">
+                    <form class="form-container" name="editform">
                         <div class="form-group">
                             <label for="title" class="col-form-label">Title</label>
-                            <input type="text" class="form-control" id="title_edit" ng-model="editMessageObj.title"
-                                required>
+                            <input type="text" class="form-control" id="title_edit" ng-model="editMessageObj.title" required>
 
                         </div>
                         <div class="form-group">
                             <label for="details" class="col-form-label">Details</label>
-                            <textarea class="form-control" id="Details_edit" ng-model="editMessageObj.details"></textarea>
+                            <textarea class="form-control" id="Details_edit" ng-model="editMessageObj.details" required></textarea>
                         </div>
                         <div class="form-group">
                             <select ng-model="editMessageObj.severity" ng-options="option.label for option in severity.severityValues track by option.id"></select>
@@ -69,10 +70,10 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" ng-click="clearForm()">Clear</button> -->
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="commitUpdateMessage()">Save
-                        edited message</button>
+                    <button type="button" class="btn btn-secondary" ng-click="clearForm()">Clear</button>
+                    <!-- <button type="button" class="btn btn-secondary" >Clear</button> -->
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Save & Close</button>
+                    <button type="submit" class="btn btn-primary" ng-click="editform.$valid && commitUpdateMessage()">Save and Close</button>
                 </div>
             </div>
         </div>

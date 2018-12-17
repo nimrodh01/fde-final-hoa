@@ -3,7 +3,10 @@
         <h3>Title (click for for more details)</h3>
     </div>
 </div>
-<li ng-repeat="message in communityMessages | orderBy:'severity.id' " class="list-group-item justify-content-between">
+<div class="form-group">
+    <input type="text" class="form-control" placeholder="Filter Messages by Title & Details" ng-model="searchText">
+  </div>
+<li ng-repeat="message in communityMessages | filter: filterMessages  | orderBy:'severity.id' " class="list-group-item justify-content-between">
 
     <div class="row">
         <div class="col-1">
