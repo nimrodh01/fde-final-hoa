@@ -29,8 +29,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" ng-click="clearForm()">Clear</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <input type="submit" class="btn btn-primary" ng-click="messageform.$valid && createMessage()">Send message
-                        </button>
+                            <button type="submit" class="btn btn-primary" ng-click="messageform.$valid && createMessage()">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -70,10 +69,10 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" ng-click="clearForm()">Clear</button>
+                    <!-- <button type="button" class="btn btn-secondary" ng-click="clearForm()">Clear</button> -->
                     <!-- <button type="button" class="btn btn-secondary" >Clear</button> -->
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Save & Close</button>
-                    <button type="submit" class="btn btn-primary" ng-click="editform.$valid && commitUpdateMessage()">Save and Close</button>
+                    <!-- <button type="submit" class="btn btn-primary" ng-click="editform.$valid && commitUpdateMessage()">Save and Close</button> -->
                 </div>
             </div>
         </div>

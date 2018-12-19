@@ -68,9 +68,12 @@ app.factory("user", function ($q, $http, $location) {
         var communityId = activeUser.communityId;
 
 
-        if (wasEverLoaded[communityId]) {
+        if (wasEverLoaded[communityId]) 
+            if (users[communityId])
+        {
             async.resolve(users[communityId]);
-        } else {
+        } 
+        else {
             users[communityId] = [];
             var getUsersURL = "https://my-json-server.typicode.com/nimrodh01/fed-final-hoa/users?communityId=" + communityId;
 

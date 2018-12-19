@@ -53,7 +53,7 @@
         "title": "Yard Sales",
         "detail": "Policy",
         "severity": {
-          "id": 2,
+          "id": "2",
           "label": "Urgent"
         },
         "community": 2
@@ -65,7 +65,7 @@
         "title": "Snow removal",
         "detail": "Please make sure all personal decoration is out of the way",
         "severity": {
-          "id": 2,
+          "id": "2",
           "label": "Urgent"
         },
         "communityId": 2
@@ -77,7 +77,7 @@
         "title": "The 4th Picnik",
         "detail": "Amazing egg dish with tomatto souce",
         "severity": {
-          "id": 2,
+          "id": "2",
           "label": "Urgent"
         },
         "communityId": 1
@@ -89,7 +89,7 @@
         "title": "spring Cleaning",
         "detail": "Come and support sustainability",
         "severity": {
-          "id": 1,
+          "id": "1",
           "label": "Info"
         },
         "communityId": 1
@@ -101,7 +101,7 @@
         "title": "Fire Drill",
         "detail": "A presentation will take place in the Club house",
         "severity": {
-          "id": 3,
+          "id": "3",
           "label": "Critical"
         },
         "communityId": 2
